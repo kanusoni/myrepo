@@ -21,6 +21,12 @@ export class User extends Entity {
   })
   password: string;
 
+  @property({
+    type: 'string',
+    id: true,
+  })
+  role: string;
+
 
   constructor(data?: Partial<User>) {
     super(data);

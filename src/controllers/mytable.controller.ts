@@ -172,4 +172,18 @@ export class MytableController {
   async deleteById(@param.path.number('id') id: number): Promise<void> {
     await this.mytableRepository.deleteById(id);
   }
+
+
+
+ @get('/test', {
+   responses: {
+     '200': {
+       description: 'test for executing query',
+     },
+   },
+ })
+ async test(): Promise<any> {
+   return this.mytableRepository.dataSource.execute('SELECT * FROM MYTABLE');
+ 
+}
 }
